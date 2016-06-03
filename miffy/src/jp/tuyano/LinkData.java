@@ -6,7 +6,9 @@ import java.util.Date;
 import javax.jdo.annotations.*;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
+
 public class LinkData {
+	
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
