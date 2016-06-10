@@ -23,11 +23,11 @@ public class UsersServlet extends HttpServlet {
           + req.getUserPrincipal().getName()
           + "さん! <a href=\""
           + userService.createLogoutURL("/welcome.html")
-          + "\">お部屋へ行く</a>.</p>");
+          + "\">お部屋へ行く</a></p>");
     } else {
       resp.getWriter().println("<p><a href=\""
             + userService.createLoginURL(thisUrl)
-            + "\">ろぐいんろぐいん！</a>.</p>");
+            + "\">ろぐいんろぐいん！</a></p>");
     }
   }
 }
