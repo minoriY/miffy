@@ -25,18 +25,14 @@ public class EditLinkDataServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         long id = Long.parseLong(req.getParameter("id"));
         String title = req.getParameter("title");
-        String date = req.getParameter("date");
-        String place = req.getParameter("place");
-        String detail = req.getParameter("detail");
-        String member = req.getParameter("member");
+        String url = req.getParameter("url");
+        String comment = req.getParameter("comment");
         PersistenceManagerFactory factory = PMF.get();
         PersistenceManager manager = factory.getPersistenceManager();
         LinkData data = (LinkData)manager.getObjectById(LinkData.class,id);
         data.setTitle(title);
-        data.setDate(date);
-        data.setPlace(place);
-        data.setDetail(detail);
-        data.setMember(member);
+        data.setUrl(url);
+        data.setComment(comment);
         manager.close();
         resp.sendRedirect("/welcome.html");
     }

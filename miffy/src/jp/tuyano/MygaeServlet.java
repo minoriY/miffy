@@ -34,9 +34,9 @@ public class MygaeServlet extends HttpServlet {
         String res = "[";
         if (list != null){
             for(LinkData data:list){
-                res += "{id:" + data.getId() + "',イベント名:'" +
+                res += "{id:" + data.getId() + ",url:'" + data.getUrl() + "',title:'" +
                     data.getTitle() + "',date:'" + data.getDatetime() +
-                    "',イベント詳細:'" + data.getDetail() + "'},";
+                    "',comment:'" + data.getComment() + "'},";
             }
         }
         res += "]";

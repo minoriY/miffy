@@ -20,10 +20,8 @@
             var arr = eval(request.responseText);
             var data = arr[0];
             var msg = '<table border="1"><tr><td>' + data.title + '</td></tr>';
-            msg += '<tr><td>' + data.date + '</td></tr>';
-            msg += '<tr><td>' + data.place + '</td></tr>';
-            msg += '<tr><td>' + data.detail + '</td></tr>';
-            msg += '<tr><td>' + data.member + '</td></tr></table>';
+            msg += '<tr><td>' + data.url + '</td></tr>';
+            msg += '<tr><td>' + data.comment + '</td></tr></table>';
             document.getElementById("data").innerHTML = msg;
             document.getElementById("id").value = data.id;
         }

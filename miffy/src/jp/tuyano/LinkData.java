@@ -1,14 +1,15 @@
 package jp.tuyano;
 
-import java.net.URL;
 import java.util.Date;
 
-import javax.jdo.annotations.*;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
-
 public class LinkData {
-	
 	@PrimaryKey
 	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
@@ -17,27 +18,19 @@ public class LinkData {
 	private String title;
 
 	@Persistent
-	private String date;
+	private String url;
 
 	@Persistent
-	private String place;
-	
-	@Persistent
-	private String detail;
-	
-	@Persistent
-	private String member;
+	private String comment;
 
 	@Persistent
 	private Date datetime;
 
-	public LinkData(String title, String date, String place, String detail, String member, Date datetime) {
+	public LinkData(String title, String url, String comment, Date datetime) {
 		super();
 		this.title = title;
-		this.date = date;
-		this.place = place;
-		this.detail = detail;
-		this.member = member;
+		this.url = url;
+		this.comment = comment;
 		this.datetime = datetime;
 	}
 
@@ -57,36 +50,20 @@ public class LinkData {
 		this.title = title;
 	}
 
-	public String getDate() {
-		return date;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
-	public String getPlace() {
-		return place;
+	public String getComment() {
+		return comment;
 	}
 
-	public void setPlace(String place) {
-		this.place = place;
-	}
-	
-	public String getDetail() {
-		return detail;
-	}
-
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
-	
-	public String getMember() {
-		return member;
-	}
-
-	public void setMember(String member) {
-		this.member = member;
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	public Date getDatetime() {
