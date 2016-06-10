@@ -5,7 +5,6 @@
     <style>
             title{font-size: 30pt; font-synthesis:weight; color: magenta;}
             h1{font-size: 20pt; font-synthesis: weight; color:magenta;}
-            body{background: ivory}
     </style>
     <title>＜・x・＞miffy＜・x・＞</title>
     <script type="text/javascript" src="lib.js"></script>
@@ -16,13 +15,15 @@
             if (json.length == 1){
                 res += '<tr><td>' + json[0].id +'</td></tr>';
                 res += '<tr><td>' + json[0].title +'</td></tr>';
-                res += '<tr><td>' + json[0].url +'</td></tr>';
-                res += '<tr><td>' + json[0].comment +'</td></tr>';
+                res += '<tr><td>' + json[0].date +'</td></tr>';
+                res += '<tr><td>' + json[0].place +'</td></tr>';
+                res += '<tr><td>' + json[0].detail +'</td></tr>';
+                res += '<tr><td>' + json[0].member +'</td></tr>';
             } else {
                 for (var i = 0;i < json.length;i++){
                     res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].id +');">' + json[i].id + '</a></td>';
-                    res += '<td><a href="' + json[i].url + '">' + json[i].title + '</a></td>';
-                    res += '<td>'+json[i].comment + '</td>' +
+                    res += '<td>' + json[i].title + '</td>';
+                    res += '<td>'+json[i].detail + '</td>' +
                     '<td><a href="edit.html?id=' + json[i].id + '">編集</td>' +
                     '<td><a href="del.html?id=' + json[i].id + '">やっぱり不参加！</td></tr>';
                 }
@@ -32,9 +33,25 @@
         }
         </script>
   </head>
-  <body onload="getData(null);">
+  <body onload="getData(null);"  id="body">
     <h1>焼肉@渋谷 6/6 18:00〜</h1>
-     
+    <form name="FORM5">
+	<input type="radio" name="Rad_5" onclick="body.style.background='#ffe4e1'">背景色：桃色
+	<input type="radio" name="Rad_5" onclick="body.style.background='#fff799'">背景色：黄色
+	<input type="radio" name="Rad_5" onclick="body.style.background='#afeeee'">背景色：水色
+	<input type="radio" name="Rad_5" onclick="body.style.background='#ffffff'">背景色：なし
+	</form>
+	
+	<script>
+		var x = 100;
+		function larger()  { x *= 1.2; document.body.style.fontSize = x + '%'; }
+		function smaller() { x /= 1.2; document.body.style.fontSize = x + '%'; }
+	</script>
+
+<p>
+<input type="submit" value="小さく" onclick="smaller();">
+<input type="submit" value="大きく" onclick="larger();">
+</p>
     <table id="datatable" border="1">
       <tr>
         <td>wait...</td>
