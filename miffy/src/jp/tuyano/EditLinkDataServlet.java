@@ -34,6 +34,6 @@ public class EditLinkDataServlet extends HttpServlet {
         data.setUrl(url);
         data.setComment(comment);
         manager.close();
-        resp.sendRedirect("/index.html");
+        resp.sendRedirect("/welcome.html");
     }
 }

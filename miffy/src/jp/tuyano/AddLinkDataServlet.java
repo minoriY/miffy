@@ -36,6 +36,6 @@ public class AddLinkDataServlet extends HttpServlet {
         } finally {
             manager.close();
         }
-        resp.sendRedirect("/index.html");
+        resp.sendRedirect("/welcome.html");
     }
 }
