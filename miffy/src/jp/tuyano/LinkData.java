@@ -18,19 +18,27 @@ public class LinkData {
 	private String title;
 
 	@Persistent
-	private String url;
-
+	private String date;
+	
+	@Persistent
+	private String place;
+	
 	@Persistent
 	private String comment;
 
 	@Persistent
+	private String member;
+	
+	@Persistent
 	private Date datetime;
 
-	public LinkData(String title, String url, String comment, Date datetime) {
+	public LinkData(String title, String date, String place, String comment, String member, Date datetime) {
 		super();
 		this.title = title;
-		this.url = url;
+		this.date = date;
+		this.place = place;
 		this.comment = comment;
+		this.member = member;
 		this.datetime = datetime;
 	}
 
@@ -50,12 +58,20 @@ public class LinkData {
 		this.title = title;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getDate() {
+		return date;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
 	}
 
 	public String getComment() {
@@ -66,6 +82,14 @@ public class LinkData {
 		this.comment = comment;
 	}
 
+	public String getMember() {
+		return member;
+	}
+
+	public void setMember(String member) {
+		this.member = member;
+	}
+	
 	public Date getDatetime() {
 		return datetime;
 	}

@@ -1,12 +1,15 @@
 package jp.tuyano;
  
 import java.io.IOException;
-import java.net.URL;
-import java.util.*;
- 
-import javax.jdo.*;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.jdo.PersistenceManager;
+import javax.jdo.PersistenceManagerFactory;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
  
 public class AddLinkDataServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -25,10 +28,12 @@ public class AddLinkDataServlet extends HttpServlet {
             throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         String title = req.getParameter("title");
-        String url = req.getParameter("url");
+        String date = req.getParameter("date");
+        String place = req.getParameter("place");
         String comment = req.getParameter("comment");
-        Date date = Calendar.getInstance().getTime();
-        LinkData data = new LinkData(title,url,comment,date);
+        String member = req.getParameter("member");
+        Date datetime = Calendar.getInstance().getTime();
+        LinkData data = new LinkData(title,date,place,comment,member,datetime);
         PersistenceManagerFactory factory = PMF.get();
         PersistenceManager manager = factory.getPersistenceManager();
         try {
