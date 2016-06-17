@@ -7,7 +7,7 @@
             h1{font-size: 20pt; font-synthesis: weight; color:magenta;}
             body{background: ivory}
     </style>
-        <title>LinkDataの更新</title>
+        <title>(・×・)miffy(・×・) | イベントの編集</title>
     <script type="text/javascript" src="lib.js"></script>
         <script type="text/javascript">
         <!--
@@ -21,24 +21,30 @@
             var data = arr[0];
             document.getElementById("id").value = data.id;
             document.getElementById("title").value = data.title;
-            document.getElementById("date_place").value = data.date_place;
+            document.getElementById("date").value = data.date;
+            document.getElementById("place").value = data.place;
             document.getElementById("comment").value = data.comment;
+            document.getElementById("member").value = data.member;
         }
         //-->
         </script>
     </head>
     <body onload="initial();">
-        <h1>データの更新</h1>
-        <table>
-        <form method="post" action="/edit">
-            <input type="hidden" id="id" name="id">
-             	<tr><th>イベント名:</th><td><input type="text" name="title"></td></tr>
-            	<tr><th>日時:</th><td><input type="text" name="date"></td></tr>
-            	<tr><th>場所:</th><td><input type="text" name="place"></td></tr>
-            	<tr><th>イベント詳細:</th><td><textarea name="comment"></textarea></td></tr>
-            	<tr><th>イベント参加者:</th><td><textarea name="member"></textarea></td></tr>
-            	<tr><th></th><td><input type="submit" value="追加"></td></tr>
-        </form>
-        </table>
+    	<center>
+    		<br>
+        	<h1>イベントの編集</h1>
+        	<table>
+        		<form method="post" action="/edit">
+            		<input type="hidden" id="id" name="id">
+             		<tr><th>イベント名:</th><td><input type="text" id="title" name="title"></td></tr>
+            		<tr><th>日時:</th><td><input type="text" id="date" name="date"></td></tr>
+            		<tr><th>場所:</th><td><input type="text" id="place" name="place"></td></tr>
+            		<tr><th>イベント詳細:</th><td><textarea id="comment" name="comment"></textarea></td></tr>
+           	 		<tr><th>イベント参加者:</th><td><textarea id="member" name="member"></textarea></td></tr>
+            		<tr><th></th><td><br><input type="submit" value="イベントを登録" style="width:100px; height:40px; font-size: 13pt;"><br><br></td></tr>
+            		<tr><th></th><td><input type="button" value="ホームに戻る"  style="width:100px; height:40px; font-size: 13pt;" onClick="location.href='welcome.html'"></td></tr>
+        		</form>
+       	 	</table>
+       	 </center>
     </body>
 </html>

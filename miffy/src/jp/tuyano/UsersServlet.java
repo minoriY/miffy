@@ -19,15 +19,15 @@ public class UsersServlet extends HttpServlet {
 
     resp.setContentType("text/html; charset=utf-8");
     if (req.getUserPrincipal() != null) {
-      resp.getWriter().println("<p>こんにちは！ "
+      resp.getWriter().println("<center><p><br>こんにちは！ "
           + req.getUserPrincipal().getName()
-          + "さん! <a href=\""
+          + "さん!<br><a href=\""
           + userService.createLogoutURL("/welcome.html")
-          + "\">お部屋へ行く</a></p>");
+          + "\">(・×・)miffy(・×・) TOPへ</a></p><img src='/img/rabbit4.png'>");
     } else {
-      resp.getWriter().println("<p><a href=\""
+      resp.getWriter().println("<center><p><br><a href=\""
             + userService.createLoginURL(thisUrl)
-            + "\">ろぐいんろぐいん！</a></p>");
+            + "\">ろぐいんろぐいん！</a></p><img src='/img/rabbit5.png'></center>");
     }
   }
 }

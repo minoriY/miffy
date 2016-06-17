@@ -6,20 +6,27 @@
             title{font-size: 30pt; font-synthesis:weight; color: magenta;}
             h1{font-size: 20pt; font-synthesis: weight; color:magenta;}
             body{background: ivory}
+            #main{margin:0,auto }
     </style>
-        <title>参加するお！</title>
+        <title>(・×・)miffy(・×・) | イベントの追加</title>
     </head>
     <body>
-        <h1>参加するお！</h1>
-        <table>
-        <form method="post" action="/add">
-            <tr><th>イベント名:</th><td><input type="text" name="title"></td></tr>
-            <tr><th>日時:</th><td><input type="text" name="date"></td></tr>
-            <tr><th>場所:</th><td><input type="text" name="place"></td></tr>
-            <tr><th>イベント詳細:</th><td><textarea name="comment"></textarea></td></tr>
-            <tr><th>イベント参加者:</th><td><textarea name="member"></textarea></td></tr>
-            <tr><th></th><td><input type="submit" value="追加" style="width:100px; height:40px; font-size: 13pt;"></td></tr>
-        </form>
-        </table>
+    	<center>
+    		<br>
+        	<h1>イベントの追加</h1>
+       		<table>
+        		<form method="post" action="/add">
+            		<tr><th>イベント名:</th><td><input type="text" name="title"></td></tr>
+            		<tr><th>日時:</th><td><input type="text" name="date"></td></tr>
+            		<tr><th>場所:</th><td><input type="text" name="place"></td></tr>
+            		<tr><th>イベント詳細:</th><td><textarea name="comment"></textarea></td></tr>
+           	 		<tr><th>イベント参加者:</th><td><textarea name="member"></textarea></td></tr>
+            		<tr><th></th><td><br><input type="submit" value="イベントを登録" style="width:100px; height:40px; font-size: 13pt;"></td></tr>
+            		<tr><th></th>
+            			<td><br><input type="button" value="ホームに戻る" style="width:100px; height:40px; font-size: 13pt;" onClick="location.href='welcome.html'"></td>
+            		</tr>
+        		</form>
+        	</table>
+        </center>
     </body>
 </html>

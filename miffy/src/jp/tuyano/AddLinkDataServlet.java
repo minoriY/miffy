@@ -27,11 +27,11 @@ public class AddLinkDataServlet extends HttpServlet {
             HttpServletResponse resp)
             throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        String title = req.getParameter("title");
+        String title = req.getParameter("title");;
         String date = req.getParameter("date");
         String place = req.getParameter("place");
-        String comment = req.getParameter("comment");
-        String member = req.getParameter("member");
+        String comment = (req.getParameter("comment")).replace("\r\n", "<br>");
+        String member = (req.getParameter("member")).replace("\r\n", "<br>");
         Date datetime = Calendar.getInstance().getTime();
         LinkData data = new LinkData(title,date,place,comment,member,datetime);
         PersistenceManagerFactory factory = PMF.get();

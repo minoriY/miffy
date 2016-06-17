@@ -5,62 +5,70 @@
     <style>
             title{font-size: 30pt; font-synthesis:weight; color: magenta;}
             h1{font-size: 15pt; font-synthesis: weight; color:magenta;}
-            body{background: ivory}
+            a{text-decoration: none;}
+            body{background: ivory;}
+            .main{margin:0,auto;}
     </style>
     <title>(・x・)miffy(・x・)</title>
     <script type="text/javascript" src="lib.js"></script>
       <script type="text/javascript">
       <!--
-        function callback(request){
+      	function callback(request){
             var json = eval(request.responseText);
             var res = '';
-            if(json.length == 1) {
-                res += '<tr><td>' + json[0].title +'</td></tr>';
-                res += '<tr><td>' + json[0].date +'</td></tr>';
-                res += '<tr><td>' + json[0].place +'</td></tr>';
-                res += '<tr><td>' + json[0].comment +'</td></tr>';
-                res += '<tr><td>' + json[0].member +'</td></tr>';
+            if (json.length == 1){
+                res += '<tr><th><center>イベント名</center></th><td><center>' + json[0].title +'</center></td></tr>';
+                res += '<tr><th><center>日時</center></th><td><center>' + json[0].date +'</center></td></tr>';
+                res += '<tr><th><center>場所</center></th><td><center>' + json[0].place +'</center></td></tr>';
+                res += '<tr><th><center>イベント詳細</center></th><td><center>' + json[0].comment +'</center></td></tr>';
+                res += '<tr><th><center>参加者</center></th><td><center>' + json[0].member +'</center></td></tr>';
+                res += '<tr><td colspan="2"><center><a href="edit.html?id=' + json[0].id + '">イベントの編集</center></td></tr>';
+                res += '<tr><td colspan="2"><center><a href="del.html?id=' + json[0].id + '">イベントの削除</center></td></tr>';
             } else {
-                for (var i=0;　i<json.length;　i++){
+                for (var i = 0;i < json.length;i++){
                     res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].id +');">' + json[i].title + '</a></td>';
-                    res += '<td><a href="edit.html?id=' + json[i].id + '">参加・イベント内容変更</td>' +
-                    res += '<td><a href="del.html?id=' + json[i].id + '">イベント削除</td></tr>';
+                    res += '<td><a href="edit.html?id=' + json[i].id + '">イベントの編集</td>';
+                    res += '<td><a href="del.html?id=' + json[i].id + '">イベントの削除</td></tr>';
                 }
             }
             var obj = document.getElementById("datatable");
-            obj.innerHTML = res;
+            obj.innerHTML = res;      
         }
         //-->
         </script>
   </head>
   <body onload="getData(null);">
-    <h1>(・×・) miffy's イベントスケジュール (・×・)</h1>
+  	<center>
+  		<br>
+    	<h1>(・×・) miffy's イベントスケジュール (・×・)</h1>
         <form name="FORM5">
-	<input type="radio" name="Rad_5" onclick="body.style.background='#ffe4e1'">背景色：桃色
-	<input type="radio" name="Rad_5" onclick="body.style.background='#fff799'">背景色：黄色
-	<input type="radio" name="Rad_5" onclick="body.style.background='#afeeee'">背景色：水色
-	<input type="radio" name="Rad_5" onclick="body.style.background='#ffffff'">背景色：なし
-	</form>
+            背景色：
+			<input type="radio" name="Rad_5" onclick="body.style.background='#ffe4e1'">桃色
+			<input type="radio" name="Rad_5" onclick="body.style.background='#fff799'">黄色
+			<input type="radio" name="Rad_5" onclick="body.style.background='#afeeee'">水色
+			<input type="radio" name="Rad_5" onclick="body.style.background='#ffffff'">白色
+		</form>
 	
-	<script>
-		var x = 100;
-		function larger()  { x *= 1.2; document.body.style.fontSize = x + '%'; }
-		function smaller() { x /= 1.2; document.body.style.fontSize = x + '%'; }
-	</script>
+		<script>
+			var x = 100;
+			function larger()  { x *= 1.2; document.body.style.fontSize = x + '%'; }
+			function smaller() { x /= 1.2; document.body.style.fontSize = x + '%'; }
+		</script>
 
-<p>
-<input type="submit" value="小さく" onclick="smaller();">
-<input type="submit" value="大きく" onclick="larger();">
-</p>
-     
-    <table id="datatable" border="1">
-      <tr>
-        <td>wait...</td>
-      </tr>
-    </table>
-    <br>
-    <div><a href="welcome.html">ホームに戻る</a></div>
-    <div><a href="add.html">イベント追加</a></div>
-    <div><a href="/users">ログアウト</a></div>
+		<p>
+			<input type="submit" value="文字を小さく" style="width:100px; height:40px; font-size: 13pt;" onclick="smaller();">
+			<input type="submit" value="文字を大きく" style="width:100px; height:40px; font-size: 13pt;" onclick="larger();">
+		</p>
+   
+   		<table id="datatable" border="1" cellspacing="0" cellpadding="5" bordercolor="magenta">
+      		<tr><td>wait...</td></tr>
+    	</table>
+    	<br>
+    	<input type="button" value="ホームに戻る" style="width:100px; height:40px; font-size: 13pt;" onClick="location.href='welcome.html'">
+    	<input type="button" value="イベントを追加" style="width:100px; height:40px; font-size: 13pt;" onClick="location.href='add.html'">
+    	<input type="button" value="ログアウト" style="width:100px; height:40px; font-size: 13pt;" onClick="location.href='/users'">
+    	<br><br>
+    	<img src="/img/rabbbit2.png" width="300" height="200">
+    </center>
   </body>
 </html>
