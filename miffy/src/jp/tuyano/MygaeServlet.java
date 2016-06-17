@@ -22,12 +22,13 @@ public class MygaeServlet extends HttpServlet {
         if (param1 == null || param1 ==""){
             String query = "select from " + LinkData.class.getName();
             try {
-                list = (List<LinkData>)manager.newQuery(query).execute();
+                List<LinkData> execute = (List<LinkData>)manager.newQuery(query).execute();
+				list = execute;
             } catch(JDOObjectNotFoundException e){}
         } else {
             try {
                 LinkData data = (LinkData)manager.getObjectById(LinkData.class,Long.parseLong(param1));
-                list = new ArrayList();
+                list = new ArrayList<LinkData>();
                 list.add(data);
             } catch(JDOObjectNotFoundException e){}
         }

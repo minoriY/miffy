@@ -21,14 +21,10 @@
                 res += '<tr><td>' + json[0].comment +'</td></tr>';
                 res += '<tr><td>' + json[0].member +'</td></tr>';
             } else {
-                for (var i = 0;i < json.length;i++){
+                for (var i=0;　i<json.length;　i++){
                     res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].id +');">' + json[i].title + '</a></td>';
-            		res += '<td>'+json[i].date + '</td>' +
-                    res += '<td>'+json[i].place + '</td>' +
-                    res += '<td>'+json[i].comment + '</td>' +
-                    res += '<td>'+json[i].member + '</td>' +
-                    '<td><a href="edit.html?id=' + json[i].id + '">参加・イベント内容変更</td>' +
-                    '<td><a href="del.html?id=' + json[i].id + '">イベント削除</td></tr>';
+                    res += '<td><a href="edit.html?id=' + json[i].id + '">参加・イベント内容変更</td>' +
+                    res += '<td><a href="del.html?id=' + json[i].id + '">イベント削除</td></tr>';
                 }
             }
             var obj = document.getElementById("datatable");
@@ -63,7 +59,8 @@
       </tr>
     </table>
     <br>
+    <div><a href="welcome.html">ホームに戻る</a></div>
     <div><a href="add.html">イベント追加</a></div>
-     <div><a href="/users">ログアウト</a></div>
+    <div><a href="/users">ログアウト</a></div>
   </body>
 </html>
