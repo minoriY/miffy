@@ -7,36 +7,43 @@
             h1{font-size: 20pt; font-synthesis: weight; color:magenta;}
             body{background: ivory}
     </style>
-        <title>LinkDataの削除</title>
+        <title>(・×・)miffy(・×・) | イベントの削除</title>
     <script type="text/javascript" src="lib.js"></script>
         <script type="text/javascript">
         <!--
-        function initial(){
-            var datas = getQuery();
-            getData(datas.id);
-        }
-         
-        function callback(request){
-            var arr = eval(request.responseText);
-            var data = arr[0];
-            var msg = '<table border="1"><tr><td>' + data.title + '</td></tr>';
-            msg += '<tr><td>' + data.date + '</td></tr>';
-            msg += '<tr><td>' + data.place + '</td></tr>';
-            msg += '<tr><td>' + data.comment + '</td></tr>';
-            msg += '<tr><td>' + data.member + '</td></tr></table>';
-            document.getElementById("data").innerHTML = msg;
-            document.getElementById("id").value = data.id;
-        }
+        	function initial(){
+            	var datas = getQuery();
+            	getData(datas.id);
+       		}
+        	 
+        	function callback(request){
+            	var arr = eval(request.responseText);
+            	var data = arr[0];
+            	var msg = '<table border="1" cellspacing="0" cellpadding="5" bordercolor="magenta">';
+            	msg += '<tr><th><center>イベント名</center></th><td><center>' + data.title + '</center></td></tr>';
+            	msg += '<tr><th><center>日時</center></th><td><center>' + data.date + '</center></td></tr>';
+            	msg += '<tr><th><center>場所</center></th><td><center>' + data.place + '</center></td></tr>';
+            	msg += '<tr><th><center>イベント詳細</center></th><td><center>' + data.comment + '</center></td></tr>';
+            	msg += '<tr><th><center>参加者</center></th><td><center>' + data.member + '</center></td></tr></table>';
+            	document.getElementById("data").innerHTML = msg;
+            	document.getElementById("id").value = data.id;
+        	}
         //-->
         </script>
     </head>
     <body onload="initial();">
-        <h1>データの削除</h1>
-        <div>以下のデータを削除しますか？</div>
-        <div id="data"></div>
-        <form method="post" action="del">
-            <input type="hidden" id="id" name="id">
-            <input type="submit" value="削除">
-        </form>
-        </body>
+    	<center>
+        	<h1>イベントの削除</h1>
+        	<div>このイベントを削除しますか？</div>
+        	<br>
+        	<div id="data"></div>
+        	<form method="post" action="del">
+         		<input type="hidden" id="id" name="id">
+         		<br>
+            	<input type="submit" value="削除" style="width:100px; height:40px; font-size: 13pt;">
+            	<br><br>
+            	<input type="button" value="ホームに戻る" style="width:100px; height:40px; font-size: 13pt;" onClick="location.href='welcome.html'">
+        	</form>
+        </center>
+	</body>
 </html>
