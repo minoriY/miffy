@@ -7,27 +7,30 @@
             h1{font-size: 15pt; font-synthesis: weight; color:magenta;}
             body{background: ivory}
     </style>
-    <title>＜・x・＞miffy＜・x・＞</title>
+    <title>(・x・)miffy(・x・)</title>
     <script type="text/javascript" src="lib.js"></script>
       <script type="text/javascript">
+      <!--
         function callback(request){
             var json = eval(request.responseText);
             var res = '';
             if(json.length == 1) {
                 res += '<tr><td>' + json[0].title +'</td></tr>';
-                res += '<tr><td>' + json[0].url +'</td></tr>';
+                res += '<tr><td>' + json[0].date +'</td></tr>';
+                res += '<tr><td>' + json[0].place +'</td></tr>';
                 res += '<tr><td>' + json[0].comment +'</td></tr>';
+                res += '<tr><td>' + json[0].member +'</td></tr>';
             } else {
-                for (var i = 0;i < json.length;i++){
+                for (var i=0;　i<json.length;　i++){
                     res += '<tr><td><a href="javascript:return false;" onclick="getData(' + json[i].id +');">' + json[i].title + '</a></td>';
-                    res += '<td>'+json[i].comment + '</td>' +
-                    '<td><a href="edit.html?id=' + json[i].id + '">編集</td>' +
-                    '<td><a href="del.html?id=' + json[i].id + '">やっぱり不参加！</td></tr>';
+                    res += '<td><a href="edit.html?id=' + json[i].id + '">参加・イベント内容変更</td>' +
+                    res += '<td><a href="del.html?id=' + json[i].id + '">イベント削除</td></tr>';
                 }
             }
             var obj = document.getElementById("datatable");
             obj.innerHTML = res;
         }
+        //-->
         </script>
   </head>
   <body onload="getData(null);">
@@ -56,7 +59,8 @@
       </tr>
     </table>
     <br>
-    <div><a href="add.html">参加する！</a></div>
-     <div><a href="/users">ログアウト</a></div>
+    <div><a href="welcome.html">ホームに戻る</a></div>
+    <div><a href="add.html">イベント追加</a></div>
+    <div><a href="/users">ログアウト</a></div>
   </body>
 </html>
